@@ -1,22 +1,22 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "network-rail-business-systems/laravel-date-timezone",
+    "description": "A simple package that sets the output of dates to a specific timezone while still maintaining UTC in the database",
     "keywords": [
-        ":vendor_name",
+        "Network-Rail-Business-Systems",
         "laravel",
-        ":package_slug"
+        "laravel-date-timezone"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/network-rail-business-systems/laravel-date-timezone",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "Christopher Abey",
+            "email": "christopher.abey@networkrail.co.uk",
             "role": "Developer"
         }
     ],
     "require": {
-        "php": "^8.1",
+        "php": "^8.0",
         "spatie/laravel-package-tools": "^1.9.2",
         "illuminate/contracts": "^9.0"
     },
@@ -34,13 +34,13 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories"
+            "NetworkRailBusinessSystems\\LaravelDateTimezone\\": "src",
+            "NetworkRailBusinessSystems\\LaravelDateTimezone\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests"
+            "NetworkRailBusinessSystems\\LaravelDateTimezone\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -54,10 +54,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "NetworkRailBusinessSystems\\LaravelDateTimezone\\LaravelDateTimezoneServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\Facades\\Skeleton"
+                "LaravelDateTimezone": "NetworkRailBusinessSystems\\LaravelDateTimezone\\Facades\\LaravelDateTimezone"
             }
         }
     },
