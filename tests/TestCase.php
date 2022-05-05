@@ -3,6 +3,8 @@
 namespace NetworkRailBusinessSystems\LaravelDateTimezone\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 use Orchestra\Testbench\TestCase as Orchestra;
 use NetworkRailBusinessSystems\LaravelDateTimezone\LaravelDateTimezoneServiceProvider;
 
@@ -13,7 +15,7 @@ class TestCase extends Orchestra
         parent::setUp();
 
         Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'NetworkRailBusinessSystems\\LaravelDateTimezone\\Database\\Factories\\'.class_basename($modelName).'Factory'
+            fn (string $modelName) => 'NetworkRailBusinessSystems\\LaravelDateTimezone\\Tests\\Stubs\\'.class_basename($modelName).'Factory'
         );
     }
 
@@ -24,13 +26,15 @@ class TestCase extends Orchestra
         ];
     }
 
+
     public function getEnvironmentSetUp($app)
     {
         config()->set('database.default', 'testing');
 
-        /*
-        $migration = include __DIR__.'/../database/migrations/create_laravel-date-timezone_table.php.stub';
-        $migration->up();
-        */
+        Schema::create('tests', function (Blueprint $table) {
+            $table->id();
+            $table->string('data');
+            $table->timestamps();
+        });
     }
 }
