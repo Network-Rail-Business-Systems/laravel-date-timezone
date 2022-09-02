@@ -25,19 +25,18 @@ it('it will persist date in database according to the app timezone', function ()
 });
 
 it('will output date in a given timezone', function () {
-    $carbonInstance = Test::first()->created_at;
+    $carbonInstance = Test::query()->first()->created_at;
 
     expect($carbonInstance->timezoneName)
-        ->toBe('Europe/London');
-
-    expect($carbonInstance->toDateTimeString())
+        ->toBe('Europe/London')
+        ->and($carbonInstance->toDateTimeString())
         ->toBe('2022-05-05 10:00:00');
 });
 
 it('will update date in database according to the app timezone', function () {
     Carbon::setTestNow('2022-05-05 12:45:30');
 
-    $model = Test::first();
+    $model = Test::query()->first();
 
     $model->update([
         'data' => 'This is an update',
